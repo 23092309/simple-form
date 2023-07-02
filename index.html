@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Simple Form</title>
+  <style>
+  body {
+    background-image: url('2.jpg');
+    background-size: cover;
+    background-position: center;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+
+  .form-container {
+    width: 400px;
+    margin: 100px auto;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+
+  .form-container label,
+  .form-container input,
+  .form-container button {
+    display: block;
+    margin-bottom: 15px;
+    font-size: 16px;
+    color: #333;
+  }
+
+  .form-container label {
+    font-weight: bold;
+  }
+
+  .form-container input[type="text"],
+  .form-container input[type="number"],
+  .form-container input[type="email"] {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+  }
+
+  .form-container input[type="file"] {
+    padding: 8px;
+  }
+
+  .form-container button[type="submit"] {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  .form-container button[type="submit"]:hover {
+    background-color: #45a049;
+  }
+</style>
+  
+</head>
+<body>
+  <div class="form-container">
+    <form id="myForm">
+      <form action="<?php echo $_SERVER["PHP_SELF"]; ?>
+      <label for="name">Name:</label>
+      <input type="text" id="name" required>
+
+      <label for="age">Age:</label>
+      <input type="number" id="age" required>
+
+      <label for="weight">Weight:</label>
+      <input type="number" id="weight" required>
+       
+      <form action="form3.php" method="POST">
+      <label for="email">Email:</label>
+      <input type="email" id="email" required>
+      </form>
+
+      <label for="report">Upload Health Report:</label>
+      <input type="file" id="report" accept="application/pdf">
+
+      <button type="submit">Submit</button>
+      <form action="<?php echo $_SERVER["PHP_SELF"]; ?>
+    </form>
+    </form>
+  </div>
+
+  <script>
+    document.getElementById("myForm").addEventListener("submit", function(event) {
+      event.preventDefault(); 
+
+      var name = document.getElementById("name").value;
+      var age = document.getElementById("age").value;
+      var weight = document.getElementById("weight").value;
+      var email = document.getElementById("email").value;
+      var report = document.getElementById("report").files[0];
+
+      
+      console.log("Name:", name);
+      console.log("Age:", age);
+      console.log("Weight:", weight);
+      console.log("Email:", email);
+      console.log("Report:", report);
+      
+      document.getElementById("myForm").reset();
+    });
+  </script>
+  
+</body>
+</html>
